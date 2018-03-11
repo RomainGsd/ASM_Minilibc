@@ -1,17 +1,17 @@
 ##
-## EPITECH PROJECT, 2018
-## minilibc
+## EPITECH PROJECT, 2018#
+# minilibc
 ## File description:
 ## Makefile
 ##
 
-NAME    =       strlen
+NAME    =       libasm.so
 
 SRC     =       strlen.asm
 
 CASM    =       nasm -f elf64
 
-CC      =       gcc -Wall -Wextra -Werror
+CCSHARED      =       gcc -shared -o
 
 RM      =       rm -f
 
@@ -19,7 +19,7 @@ all:    $(NAME)
 
 $(NAME):
 	$(CASM) $(SRC)
-	ld -o $(NAME) *.o
+	$(CCSHARED) $(NAME) *.o
 
 clean:
 	$(RM) *.o
