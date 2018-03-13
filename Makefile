@@ -11,7 +11,7 @@ SRC     =       strlen.asm
 
 CASM    =       nasm -f elf64
 
-LINK      =       ld -fPIC -shared -o
+LINK	=	ld -fPIC -shared -o
 
 RM      =       rm -f
 
