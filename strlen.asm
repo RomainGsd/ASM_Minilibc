@@ -1,5 +1,5 @@
-	section .text
-	GLOBAL _start, _strlen
+section .text
+global _start, _strlen
 
 _strlen:
 	push rbp
@@ -7,18 +7,18 @@ _strlen:
 
 	mov rbx, [rbp+8]	; first argument
 	xor rax, rax		; length
-	
+
 _strlen_next:
-	;; Receive arg and compare to null byte
+;; Receive arg and compare to null byte
 	cmp byte [rbx], byte 0
 	jz _strlen_null	      ; If null byte reached, goto strlen_null
 
-	;; While != null byte increment variable
+;; While != null byte increment variable
 	inc rax			; length += 1
 	inc rbx			;
 	jmp _strlen_next 	; recursive call
-	
-_strlen_null:	
+
+_strlen_null:
 	pop rbp
 	ret
 

@@ -11,7 +11,7 @@ SRC     =       strlen.asm
 
 CASM    =       nasm -f elf64
 
-CCSHARED      =       gcc -shared -o
+LINK      =       ld -fPIC -shared -o
 
 RM      =       rm -f
 
@@ -19,7 +19,7 @@ all:    $(NAME)
 
 $(NAME):
 	$(CASM) $(SRC)
-	$(CCSHARED) $(NAME) *.o
+	$(LINK) $(NAME) *.o
 
 clean:
 	$(RM) *.o
