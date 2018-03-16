@@ -7,7 +7,7 @@
 
 NAME    =       libasm.so
 
-SRC     =       strlen.asm
+SRC     =       src/strlen.asm
 
 CASM    =       nasm -f elf64
 
