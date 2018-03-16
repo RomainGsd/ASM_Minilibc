@@ -1,16 +1,23 @@
-section .text
-global _strlen
+[BITS 64]
 
-_strlen:
-	push rax
-	mov rbx, 0
-	call _strlen_next
-	ret
-	
-_strlen_next:
-	inc rax
-	inc rbx
-	mov cl, [rax]
-	cmp cl, 0
-	jne _strlen_next
+section .text
+global strlen 			; size_t strlen(char const *)
+
+strlen:
+	push rbp
+	mov rbp, rsp 		; get arguments passed by c function
+
+	xor rcx, rcx
+
+strlenloop:
+	cmp BYTE [rdi + rcx], 0
+	jz end
+	inc rcx
+	jmp strlenloop
+
+end:
+	mov rax, rcx
+
+	mov rsp, rbp
+	pop rbp
 	ret

@@ -3,26 +3,27 @@ section .data
 	text2 db "World?",10,0
 	
 section .text
-global _start, _print
+global _start
 
-%macro exit 0
+%macro printString 1
+	mov rax, %1
+	call _print
+%endmacro
+	
+%macro exit 1
 	mov rax, 60
-	mov rdi, 0
+	mov rdi, %1
 	syscall
 %endmacro
 	
 _start:
-	mov rax, text
-	call _print
+	printString text
+	printString text2
 
-	mov rax, text2
-	call _print
-
-	exit
+	exit 0
 	;input: rax as pointer to string
 	;output: print string at rax
 _print:
-	mov rax, text
 	push rax
 	mov rbx, 0
 

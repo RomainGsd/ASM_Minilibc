@@ -1,20 +1,27 @@
 section .bss
-	digitSpace resb 100 	; resb = reserve byte
+	digit resb 100 	; resb = reserve byte
 	digitSpacePos resb 8
 
 section .text
 global _start
 
-_start:
-	mov rax, 123
+%macro printInt 1
+	mov rax, %1
 	call _printInteger
+%endmacro
 
+%macro exit 1
 	mov rax, 60
-	mov rdi, 0
+	mov rdi, %1
 	syscall
+%endmacro
+
+_start:
+	printInt 123
+	exit 0
 
 _printInteger:
-	mov rcx, digitSpace
+	mov rcx, digit
 	mov rbx, 10
 	mov [rcx], rbx
 	inc rcx
@@ -49,7 +56,7 @@ _printIntegerLoop2:
 	dec rcx
 	mov [digitSpacePos], rcx
 
-	cmp rcx, digitSpace
+	cmp rcx, digit
 	jge _printIntegerLoop2
 
 	ret
