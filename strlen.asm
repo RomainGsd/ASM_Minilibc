@@ -7,10 +7,10 @@ strlen:
 	push rbp
 	mov rbp, rsp 		; get arguments passed by c function
 
-	xor rcx, rcx
+	xor rcx, rcx		;set rcx to 0
 
 strlenloop:
-	cmp BYTE [rdi + rcx], 0
+	cmp BYTE [rdi + rcx], 0	;what does contain rdi ?
 	jz end
 	inc rcx
 	jmp strlenloop
