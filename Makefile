@@ -7,19 +7,24 @@
 
 NAME    =       libasm.so
 
-SRC     =       src/strlen.asm
+SRCS	=       strlen.asm \
+		strchr.asm
 
-CASM    =       nasm -f elf64
+ASM	=       nasm -f elf64
 
-LINK	=	ld -fPIC -shared -o
+OBJS	=	$(SRCS:.asm=.o)
+
+LD	=	ld -fPIC -shared -o
 
 RM      =       rm -f
 
+%.o: %.asm
+	$(ASM) $<
+
 all:    $(NAME)
 
-$(NAME):
-	$(CASM) $(SRC)
-	$(LINK) $(NAME) *.o
+$(NAME):	$(OBJS)
+	$(LD) $(NAME) $(OBJS)
 
 clean:
 	$(RM) *.o

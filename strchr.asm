@@ -9,11 +9,8 @@ strchr:
 	mov rbp, rsp
 
 	xor rcx, rcx
-
-	push [rdi+rcx]
-	call printf
-
-
+	
+end:
 	mov rsp, rbp
 	pop rbp
 	ret

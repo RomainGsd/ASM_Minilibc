@@ -83,7 +83,7 @@ section .bss
     mov [digitPos], rcx
 
     cmp rcx, digit
-    jge %%printLoop2
+    jge %%printIntLoop2
 %endmacro
 
 %macro exit 1
