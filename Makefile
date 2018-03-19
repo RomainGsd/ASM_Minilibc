@@ -8,8 +8,7 @@
 NAME    =       libasm.so
 
 SRCS	=       src/strlen.asm \
-		src/strchr.asm \
-		printHelloWorld.asm
+		src/strchr.asm
 
 ASM	=       nasm -f elf64
 
@@ -17,7 +16,7 @@ OBJS	=	$(SRCS:.asm=.o)
 
 LD	=	ld -fPIC -shared -o
 
-RM      =       rm -f
+RM      =       rm -rf
 
 %.o: %.asm
 	$(ASM) $<
@@ -28,7 +27,7 @@ $(NAME):	$(OBJS)
 	$(LD) $(NAME) $(OBJS)
 
 clean:
-	$(RM) *.o
+	$(RM) $(OBJS)
 
 fclean:	clean
 	$(RM) $(NAME)
