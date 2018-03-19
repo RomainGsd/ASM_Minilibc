@@ -8,7 +8,8 @@
 NAME    =       libasm.so
 
 SRCS	=       src/strlen.asm \
-		src/strchr.asm
+		src/strchr.asm \
+		src/memset.asm
 
 ASM	=       nasm -f elf64
 
