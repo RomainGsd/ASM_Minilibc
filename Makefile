@@ -7,8 +7,9 @@
 
 NAME    =       libasm.so
 
-SRCS	=       strlen.asm \
-		strchr.asm
+SRCS	=       src/strlen.asm \
+		src/strchr.asm \
+		printHelloWorld.asm
 
 ASM	=       nasm -f elf64
 
