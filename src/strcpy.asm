@@ -11,11 +11,11 @@ strcpy:
 	xor rcx, rcx
 	xor rdx, rdx
 
-countStrLength:
+countDestLength:
 	cmp byte [rdi + rcx], 0
 	je copyBytes
 	inc rcx
-	jmp countStrLength
+	jmp countDestLength
 
 copyBytes:
 	mov dil, byte [rsi + rdx]
