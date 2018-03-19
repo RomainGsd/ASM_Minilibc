@@ -1,0 +1,19 @@
+[bits 64]
+
+section .text
+global memcpy
+
+memcpy:
+	push rbp
+	mov rbp, rsp
+
+memcpyLoop:
+	cmp byte [rsi], 0
+	je exit
+	mov sil, 
+	
+exit:
+	mov rsp, rbp
+	pop rbp
+	ret
+	
