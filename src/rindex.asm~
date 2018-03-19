@@ -1,0 +1,26 @@
+[bits 64]
+
+	; char *rindex(const char *s, int c)
+
+section .text
+global rindex
+
+rindex:
+	push rbp
+	mov rbp, rsp
+
+rindexLoop:
+	cmp byte [rdi], sil
+	je exit
+	cmp byte [rdi], 0
+	jmp retNull
+	inc rdi
+	jmp rindexLoop
+
+retNull:
+	mov rax, 0
+	
+exit:
+	mov rsp, rbp
+	pop rbp
+	ret

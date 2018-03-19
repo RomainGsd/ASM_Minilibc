@@ -11,7 +11,8 @@ SRCS	=       src/strlen.asm \
 		src/strchr.asm \
 		src/memset.asm \
 		src/strcpy.asm \
-		src/memcpy.asm
+		src/memcpy.asm \
+		src/rindex.asm
 
 ASM	=       nasm -f elf64
 
