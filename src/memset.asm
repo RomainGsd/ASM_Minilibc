@@ -11,13 +11,15 @@ memset:
 	push rbp
 	mov rbp, rsp
 
-	xor rcx, rcx
+	mov rcx, 0
+	dec rdx
 	
 setBytes:
 	mov byte [rdi + rcx], sil
 	cmp rcx, rdx
 	je exit
 	inc rcx
+	jmp setBytes
 
 exit:
 	mov rsp, rbp
