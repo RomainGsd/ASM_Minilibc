@@ -5,13 +5,13 @@ global strlen 			; size_t strlen(char const *)
 
 strlen:
 	push rbp
-	mov rbp, rsp 		; get arguments passed by c function
+	mov rbp, rsp 		; save stack
 
-	xor rax, rax		;set rcx to 0
+	xor rax, rax		; set rcx to 0
 
 strlenloop:
-	cmp byte [rdi + rax], 0	;what does contain rdi ?
-	jz end			;goto end if [rdi + rcx] == 0
+	cmp byte [rdi + rax], 0	; 
+	jz end			; goto end if [rdi + rax] == byte NULL
 	inc rax
 	jmp strlenloop
 
