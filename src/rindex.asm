@@ -16,7 +16,7 @@ strLen:
 	jz rindexLoop
 	inc rcx
 	jmp strLen
-	
+
 rindexLoop:
 	cmp [rdi + rcx], sil
 	jz retNewStr

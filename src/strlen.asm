@@ -11,11 +11,11 @@ strlen:
 
 strlenloop:
 	cmp byte [rdi + rax], 0	; 
-	jz end			; goto end if [rdi + rax] == byte NULL
+	jz exit			; goto end if [rdi + rax] == byte NULL
 	inc rax
 	jmp strlenloop
 
-end:
+exit:
 	mov rcx, rax
 
 	mov rsp, rbp
