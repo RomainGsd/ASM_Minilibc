@@ -10,14 +10,16 @@ memcpy:
 	xor rcx, rcx
 
 memcpyLoop:
-	cmp rcx, rdx
-	je exit
-	mov r10, [rsi + rcx]
-	mov [rdi + rcx], r10
+	cmp rdx, rcx
+	jz exit
+	mov r10b, [rsi + rcx]
+	mov [rdi + rcx], r10b
 	inc rcx
 	jmp memcpyLoop
 
 exit:
+	mov rax, rdi
+
 	mov rsp, rbp
 	pop rbp
 	ret
