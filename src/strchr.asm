@@ -11,17 +11,20 @@ strchr:
 	
 strchrLoop:
 	cmp byte [rdi + rcx], sil
-	je end
+	je retVal
 	cmp byte [rdi + rcx], 0
 	je retNull
 	inc rcx
 	jmp strchrLoop
 
+retVal:
+	mov rax, rdi
+	jmp exit
 
 retNull:
 	mov rax, 0
 	
-end:
+exit:
 	mov rsp, rbp
 	pop rbp
 	ret
