@@ -18,6 +18,8 @@ strchrLoop:
 	je retVal
 	cmp byte [rdi + rcx], 0
 	je retNull
+	cmp byte sil, 0
+	jz retNull
 	inc rcx
 	jmp strchrLoop
 

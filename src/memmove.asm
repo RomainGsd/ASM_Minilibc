@@ -12,7 +12,12 @@ memmove:
 	xor rcx, rcx
 
 memmoveLoop:
-	
+	cmp rdx, rcx
+        jz exit
+        mov r10b, [rsi + rcx]
+        mov [rdi + rcx], r10b
+        inc rcx
+        jmp memmoveLoop	
 
 exit:
 	mov rsp, rbp
