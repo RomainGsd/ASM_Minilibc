@@ -7,13 +7,15 @@
 
 NAME    =       libasm.so
 
-SRCS	=       src/strlen.asm \
-		src/strchr.asm \
-		src/memset.asm \
-		src/strcpy.asm \
-		src/memcpy.asm \
-		src/rindex.asm \
-		src/strcmp.asm
+SRCS	=	src/memcpy.asm	\
+		src/memmove.asm	\
+		src/memset.asm	\
+		src/rindex.asm	\
+		src/strchr.asm	\
+		src/strcmp.asm	\
+		src/strcpy.asm	\
+		src/strlen.asm	\
+		src/strncmp.asm
 
 ASM	=       nasm -f elf64
 

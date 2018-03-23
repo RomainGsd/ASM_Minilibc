@@ -3,15 +3,15 @@
         ; int strncmp(const char *str1, const char *str2, size_t n)
 
 section .text
-global strcmp
+global strncmp
 
-strcmp:
+strncmp:
         push rbp
         mov rbp, rsp
 
         xor rcx, rcx
 
-strcmpLoop:
+strncmpLoop:
 	cmp rdx, rcx
 	jz exit
         mov r10b, [rdi + rcx]
@@ -23,8 +23,8 @@ strcmpLoop:
         cmp r10b, r8b
         jne exit
         inc rcx
-	
-        jmp strcmpLoop
+
+        jmp strncmpLoop
 
 exit:
         sub r10b, r8b           ; diff to return
