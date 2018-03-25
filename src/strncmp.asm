@@ -12,13 +12,15 @@ strncmp:
         xor rcx, rcx
 
 strncmpLoop:
+	cmp rdx, byte 0
+	jl exit_error
 	cmp rdx, rcx
 	jz exit
         mov r10b, [rdi + rcx]
         mov r8b, [rsi + rcx]
-	cmp r10b, 0
+	cmp r10b, byte 0
         je exit
-        cmp r8b, 0
+        cmp r8b, byte 0
         je exit
         cmp r10b, r8b
         jne exit
@@ -33,3 +35,11 @@ exit:
         mov rsp, rbp
         pop rbp
         ret
+
+exit_error:
+	mov rax, 0
+	
+        mov rsp, rbp
+        pop rbp
+        ret
+	
