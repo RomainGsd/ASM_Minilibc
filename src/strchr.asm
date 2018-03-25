@@ -1,5 +1,8 @@
 [BITS 64]
 
+section .data
+	retempty db "", 0
+
 section .text
 global strchr		; char *strchr(const char *, int c)
 
@@ -8,18 +11,14 @@ strchr:
 	mov rbp, rsp
 
 	xor rcx, rcx
-
-strLen:
-	cmp sil, 0
-	jz retNull
-
+	
 strchrLoop:
+	cmp sil, byte 0
+	jz retEmpty
 	cmp byte [rdi + rcx], sil
 	je retVal
 	cmp byte [rdi + rcx], 0
 	je retNull
-	cmp byte sil, 0
-	jz retNull
 	inc rcx
 	jmp strchrLoop
 
@@ -28,9 +27,13 @@ retVal:
 	add rax, rcx
 	jmp exit
 
+retEmpty:
+	mov rax, retempty
+	jmp exit
+
 retNull:
 	mov rax, 0
-
+	
 exit:
 	mov rsp, rbp
 	pop rbp
