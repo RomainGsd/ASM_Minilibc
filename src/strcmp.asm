@@ -14,9 +14,9 @@ strcmp:
 strcmpLoop:
 	mov r10b, [rdi + rcx]
 	mov r8b, [rsi + rcx]
-	cmp r10b, 0
+	cmp r10b, byte 0
 	je exit
-	cmp r8b, 0
+	cmp r8b, byte 0
 	je exit
 	cmp r10b, r8b
 	jne exit
