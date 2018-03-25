@@ -32,7 +32,7 @@ retEmpty:
 	jmp exit
 
 retNull:
-	mov rax, 0
+	xor rax, rax
 	
 exit:
 	mov rsp, rbp

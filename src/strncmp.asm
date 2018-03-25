@@ -37,7 +37,7 @@ exit:
         ret
 
 exit_error:
-	mov rax, 0
+	xor rax, rax
 	
         mov rsp, rbp
         pop rbp
